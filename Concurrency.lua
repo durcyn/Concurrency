@@ -47,10 +47,10 @@ f:SetScript("OnEvent", function(frame, event, ...)
 	for _, i in pairs(raw) do
 		local currency, amount, texture, week, max, cap, known  = GetCurrencyInfo(i)
 		if known then 
-			currencies[currency] = true
+			currencies[currency] = i
 			for k,v in pairs(ConcurrencyDB) do
 				if v.name == name then
-					v.data[currency] = amount
+					v.data[i] = amount
 				end
 			end
 		end
@@ -64,10 +64,10 @@ local function OnShow(tooltip, ...)
 		if currencies[title] then
 			sort(ConcurrencyDB, function(a,b) return a.name < b.name end)
 			for k,v in pairs(ConcurrencyDB) do
-				if v.name ~= name and v.realm == realm and v.data[title] then
+				if v.name ~= name and v.realm == realm and v.data[currencies[title]] then
 					local fancy = v.class and colors[v.class] and colors[v.class]..v.name.."|r" or v.name
 					if v.realm ~= v.realm then fancy = fancy.." - "..v.realm end
-					tooltip:AddLine(format("%s:  %d", fancy, v.data[title]))
+					tooltip:AddLine(format("%s:  %d", fancy, v.data[currencies[title]]))
 					tooltip:SetHeight(tooltip:GetHeight()+14)
 				end
 			end
