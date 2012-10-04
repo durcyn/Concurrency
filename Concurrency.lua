@@ -64,7 +64,7 @@ local function OnShow(tooltip, ...)
 		if currencies[title] then
 			sort(ConcurrencyDB, function(a,b) return a.name < b.name end)
 			for k,v in pairs(ConcurrencyDB) do
-				if v.name ~= name and v.realm == realm and v.data[currencies[title]] then
+				if v.realm == realm and v.data[currencies[title]] and v.data[currencies[title]] > 0 then
 					local fancy = v.class and colors[v.class] and colors[v.class]..v.name.."|r" or v.name
 					if v.realm ~= v.realm then fancy = fancy.." - "..v.realm end
 					tooltip:AddLine(format("%s:  %d", fancy, v.data[currencies[title]]))
