@@ -1,4 +1,4 @@
-## Interface: 50001
+## Interface: 50100
 ## Title: Concurrency
 ## Notes: Show all characters' currency in the currency tooltips 
 ## Author: durcyn
