@@ -12,7 +12,7 @@ local sort = _G.table.sort
 local f = CreateFrame("Frame")
 ConcurrencyDB = ConcurrencyDB or {}
 
-local raw = {241, 390, 61, 515, 398, 384, 697, 81, 615, 393, 392, 361, 402, 395, 416, 677, 614, 400, 394, 397, 676, 391, 401, 385, 396, 399, 698, }
+local raw = {241, 390, 61, 515, 398, 384, 697, 81, 615, 393, 392, 361, 402, 395, 416, 677, 614, 400, 394, 397, 676, 391, 401, 385, 396, 399, 698, 738, }
 local currencies = {}
 
 local init, name, class, realm
